@@ -1,0 +1,13 @@
+.footerTop{
+padding-top:1rem;
+height: 10rem;
+background: black;
+padding: 20px;
+color: white;
+}
+
+.footerBottom{
+background: #333333;
+text-align: center;
+color: white;
+}

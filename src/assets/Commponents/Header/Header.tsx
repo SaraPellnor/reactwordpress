@@ -1,9 +1,14 @@
-import "./Header.css"
+import "./Header.css";
+import HeaderTop from "../HeaderTop/HeaderTop";
+import HeaderBottom from "../HeaderBottom/HeaderBottom";
 
 const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
+    <div>
+      <HeaderTop />
+      <HeaderBottom />
+    </div>
+  );
+};
 
-export default Header
+export default Header;
