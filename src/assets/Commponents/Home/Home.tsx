@@ -20,7 +20,6 @@ const getData = async ()  => {
     const data = await response.json()
     setNewData(data)
     console.log(data);
-    // kdkvjblzdkvzdkfbdv
     
 }
  
