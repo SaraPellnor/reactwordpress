@@ -1,0 +1,6 @@
+.headerTop {
+    display: flex;
+    align-items: center;
+    background-color: aqua;
+    height: 25px;
+}
