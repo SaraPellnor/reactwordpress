@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import parse from "html-react-parser"
+// import parse from "html-react-parser"
 import "./Heme.css"
 const Home = () => {
 interface iNewData {
@@ -11,6 +11,10 @@ interface iNewData {
     title: {
         rendered: string
     }
+    yoast_head_json: {
+      title: string
+      description: string
+    }
 }
 const [newData, setNewData] = useState<iNewData[]>()
 
@@ -20,7 +24,6 @@ const getData = async ()  => {
     const data = await response.json()
     setNewData(data)
     console.log(data);
-    
 }
  
 useEffect(() => {
@@ -34,8 +37,8 @@ useEffect(() => {
     
     newData?.map((data)=>(
       <div key={data.id}>
-          <h1>{parse(data.title.rendered)} </h1>
-         <p>{parse(data.content.rendered)} </p>
+          <h1>{data.yoast_head_json.title} </h1>
+         <p>{data.yoast_head_json.description} </p>
       </div>
     ))
     } 

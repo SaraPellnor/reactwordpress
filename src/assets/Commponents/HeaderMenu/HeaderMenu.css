@@ -1,0 +1,5 @@
+.headerMenu {
+    width: 70%;
+    display: flex;
+    justify-content: right;
+}
