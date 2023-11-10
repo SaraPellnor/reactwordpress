@@ -1,16 +1,18 @@
-import { BrowserRouter as Router, Route } from "react-router-dom"
-import "./Main.css"
-import Home from "../Home/Home"
-import Test from "../Test/Test"
+import { Routes, Route } from "react-router-dom";
+
+import "./Main.css";
+import Home from "../Home/Home";
+import Test from "../Test/Test";
+
 const Main = () => {
   return (
-   <Router>
-      <Route path="/home" element={<Home />}/>
-      <Route path="/" element= {<Test />} />
+    <Routes>
+      <Route path="/home" element={<Home />} />
+      <Route path="/" element={<Test />} />
       <Route />
       <Route />
-   </Router>
-  )
-}
+    </Routes>
+  );
+};
 
-export default Main
+export default Main;
