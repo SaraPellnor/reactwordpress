@@ -1,5 +1,5 @@
 import { Facebook, Twitter, Google, Pinterest } from "react-bootstrap-icons";
-import Button from "react-bootstrap/Button"
+import LogInBtn from "../Buttons/LoginBtn/LoginBtn";
 import "./HeaderTop.css";
 
 const HeaderTop = () => {
@@ -11,7 +11,8 @@ const HeaderTop = () => {
         <Google />
         <Pinterest />
       </section>
-      <Button className="logInBtn" variant="outline-secondary">Logga in </Button>
+      <LogInBtn/>
+      
   
     </div>
   );

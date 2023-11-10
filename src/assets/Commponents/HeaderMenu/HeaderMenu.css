@@ -1,5 +1,6 @@
 .headerMenu {
     width: 70%;
     display: flex;
-    justify-content: right;
+    justify-content: center;
+    align-items: center;
 }

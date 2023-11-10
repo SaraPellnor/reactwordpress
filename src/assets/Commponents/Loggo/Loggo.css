@@ -4,6 +4,7 @@
   border: solid 1px rgb(158, 158, 158);
   border-radius: 20px;
   width: 30%;
+  min-width: 340px;
   text-align: center;
 }
 
