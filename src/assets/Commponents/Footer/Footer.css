@@ -1,9 +1,10 @@
 .footerTop{
 padding-top:1rem;
 height: 10rem;
-background: black;
+background: --secondary-color;
 padding: 20px;
-color: white;
+color: --text-color;
+
 }
 
 .footerBottom{

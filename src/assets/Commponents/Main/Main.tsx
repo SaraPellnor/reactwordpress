@@ -1,15 +1,15 @@
-import { Route, Routes } from "react-router-dom"
+import { BrowserRouter as Router, Route } from "react-router-dom"
 import "./Main.css"
 import Home from "../Home/Home"
-
+import Test from "../Test/Test"
 const Main = () => {
   return (
-   <Routes>
-    <Route path="/home" element={<Home />}/>
-    <Route />
-    <Route />
-    <Route />
-   </Routes>
+   <Router>
+      <Route path="/home" element={<Home />}/>
+      <Route path="/" element= {<Test />} />
+      <Route />
+      <Route />
+   </Router>
   )
 }
 

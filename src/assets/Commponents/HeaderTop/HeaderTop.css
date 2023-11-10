@@ -1,6 +1,37 @@
 .headerTop {
-    display: flex;
-    align-items: center;
-    background-color: aqua;
-    height: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+  background-color: black;
+  width: 100%;
 }
+
+.headerTop section {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
+
+.headerTop section svg {
+  color: white;
+  font-size:30px;
+  /* fill: rgb(175, 174, 174); */
+}
+
+
+
+.headerTop .logInBtn:hover {
+  background-color: pink;
+  color: rgb(218, 15, 15);
+}
+
+/* .facebook-icon {
+  background-color: rgb(255, 255, 255);
+  
+    font-size:30px;
+    border-radius:50%;
+    
+} */
+
+
