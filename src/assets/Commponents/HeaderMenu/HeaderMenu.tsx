@@ -7,78 +7,59 @@
 // import Offcanvas from "react-bootstrap/Offcanvas";
 // import AddCompanyBtn from "../Buttons/AddCompanyBtn/AddCompanyBtn";
 import { gql, useQuery } from "@apollo/client";
-
 // import { useEffect, useState } from "react";
-// const GET_POST =gql `
-// {
-//   menu(id: "huvudmeny", idType: NAME) {
-//     id
-//     menuItems {
-//       nodes {
-//         id
-//         label
-//         url
-//       }
-//     }
-//   }
-// }
-// `
+import { NavLink } from "react-router-dom";
+
+interface iMenu {
+  label: string
+  uri: string
+}
 
 const HeaderMenu = () => {
+  // const [headerMenu, setHeaderMenu] = useState<iMenu[]>([]);
+  
   const GET_MENU = gql`
-    query GetMenu($id: ID!, $idType: MenuNodeIdTypeEnum) {
-      menu(id: $id, idType: $idType) {
-        id
-        menuItems {
-          nodes {
-            id
-            label
-            url
-          }
+  query NewQuery {
+    menu(id: "dGVybTo1") {
+      menuItems {
+        nodes {
+          uri
+          label
         }
       }
     }
+  }
   `;
 
-  const { loading, error, data } = useQuery(GET_MENU, {
-    variables: { id: "huvudmeny", idType: "NAME" },
-  });
 
-  if (loading) return <p>Loading...</p>;
+  const { loading, error, data } = useQuery(GET_MENU);
+
+//   useEffect(async()=> {
+//     const item = await data
+//     setHeaderMenu(item.menu.menuItems.nodes)
+//     if (!error && data) return setHeaderMenu(data.menu.menuItems.nodes)
+// console.log('hej', headerMenu);
+    
+//   }, [loading,error, data, headerMenu])
+
+  if (loading) return <p></p>;
   if (error) return <p>Error! {error.message}</p>;
-  console.log(data);
 
   return (
-    <ul>
-      {/* {data.menu.menuItems.nodes.map((menuItem) => (
-      <li key={menuItem.id} onClick={() => onMenuItemSelected(menuItem)}>
-        {menuItem.label}
-      </li>
-    ))} */}
+    <ul className="headerUl">
+      {data.menu.menuItems.nodes.map((menuItem: iMenu, index: number) => (
+      <NavLink to={menuItem.uri} key={index}>
+        <li>
+          {menuItem.label}
+        </li>
+      </NavLink>
+    ))}
     </ul>
   );
 };
 
-// const [posts, setPosts] = useState([]);
+
 // const categoryId = "dfsbs45464grtb"
-
-// useEffect(() => {
-//   const fetchPosts = async () => {
-//     try {
-//       const response = await fetch(
-//         `https://your-wordpress-site.com/wp-json/wp/v2/posts?categories=${categoryId}`
-//       );
-//         const data = await response.json()
-//       setPosts(data);
-//       console.log(posts);
-
-//     } catch (error) {
-//       console.error('Error fetching posts:', error);
-//     }
-//   };
-
-//   fetchPosts();
-// }, []);
 
 // return (
 //   <>
@@ -117,43 +98,7 @@ const HeaderMenu = () => {
 //                 <NavDropdown.Item href="#action1">
 //                   Industri ventilation
 //                 </NavDropdown.Item>
-//                 <NavDropdown.Item href="#action4">
-//                   Lägenhet ventilation
-//                 </NavDropdown.Item>
-//                 <NavDropdown.Item href="#action4">
-//                   Hus ventilation
-//                 </NavDropdown.Item>
-//                 <NavDropdown.Item href="#action4">
-//                   Ventilation offentlig sektor
-//                 </NavDropdown.Item>
-//                 <NavDropdown.Item href="#action4">
-//                   Ventilation för företag
-//                 </NavDropdown.Item>
-//                 <NavDropdown.Item href="#action4">
-//                   Ventilationssystem
-//                 </NavDropdown.Item>
-//                 <NavDropdown.Item href="#action4">
-//                   Ventilationsservice
-//                 </NavDropdown.Item>
-//                 <NavDropdown.Item href="#action4">
-//                 Ventilationsfilter
-//                 </NavDropdown.Item>
-//                 <NavDropdown.Item href="#action4">
 
-//                 OVK besiktning
-//               </NavDropdown.Item>
-//                 <NavDropdown.Item href="#action4">
-//                   Badrumsventilation
-//                 </NavDropdown.Item>
-
-//                 <NavDropdown.Item href="#action4">
-
-//                   Köksventilation
-//                 </NavDropdown.Item>
-//                 <NavDropdown.Item href="#action4">
-
-//                   Ventilationsrengöring
-//                 </NavDropdown.Item>
 //               </NavDropdown>
 //               <Nav.Link href="#">Ventilationsfirmor</Nav.Link>
 //               <Nav.Link href="#">Rotavdrag</Nav.Link>
